@@ -1,0 +1,6 @@
+[submodule "software/lib/wildapricot_api"]
+	path = software/lib/wildapricot_api
+	url = git@github.com:MakeICT/wildapricot_api.git
+[submodule "software/lib/mcp_api"]
+	path = software/lib/mcp_api
+	url = git@github.com:MakeICT/mcp_api.git
