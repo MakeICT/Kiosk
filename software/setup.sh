@@ -27,14 +27,17 @@ touch /tmp/tsharcoutput
 #Run the configuration program
 hlincal
 
-#Create script to launch browser at login
+#Remove old files
+rm /usr/bin/startkiosk 2>/dev/null
+rm /home/kiosk/.config/autostart/kiosk.desktop 2>/dev/null
 
-mkdir /home/kiosk/autostart
+#Create script to launch browser at login
+mkdir -p /home/kiosk/autostart
 chown kiosk:kiosk /home/kiosk/autostart
 
 PWD=`pwd`
 
-echo \
+echo -n \
 'chromium \
     --no-first-run \
     --disable \
@@ -45,8 +48,8 @@ echo \
     --start-maximized \
     --kiosk \'
 >/usr/bin/startkiosk
-echo `pwd` > /usr/bin/startkiosk
-echo  '\index.html &' > /usr/bin/startkiosk
+echo -n `pwd` >> /usr/bin/startkiosk
+echo '\index.html &' >> /usr/bin/startkiosk
 
 chmod a+x /usr/bin/startkiosk
 
@@ -59,7 +62,7 @@ Type=Application
 StartupNotify=false' \
 >/home/kiosk/.config/autostart/kiosk.desktop
 
-chown kiosk:kiosk /home/kiosk/.config/autostart/kiosk
+chown kiosk:kiosk /home/kiosk/.config/autostart/kiosk.desktop
 
 
 
