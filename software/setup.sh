@@ -46,10 +46,10 @@ echo -n \
     --disable-suggestions-service \
     --disable-save-password-bubble \
     --start-maximized \
-    --kiosk \'
+    --kiosk "' \
 >/usr/bin/startkiosk
 echo -n `pwd` >> /usr/bin/startkiosk
-echo '\index.html &' >> /usr/bin/startkiosk
+echo '/index.html" &' >> /usr/bin/startkiosk
 
 chmod a+x /usr/bin/startkiosk
 
