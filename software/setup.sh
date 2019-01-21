@@ -66,10 +66,11 @@ chown kiosk:kiosk /home/kiosk/.config/autostart/kiosk.desktop
 
 
 
-#Disable Gnome Keyring
+#Disable Gnome Keyring, because it's annoying and and unnecessary
 chmod -x $(type -p gnome-keyring-daemon)
 
 #Disable ssh for kiosk user?
+passwd --delete kiosk
 
 #Enable on-screen keyboard?
 
