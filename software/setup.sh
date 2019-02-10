@@ -46,7 +46,7 @@ echo -n \
     --disable-suggestions-service \
     --disable-save-password-bubble \
     --start-maximized \
-    --kiosk "' \
+    --kiosk --app="' \
 >/usr/bin/startkiosk
 echo -n `pwd` >> /usr/bin/startkiosk
 echo '/index.html" &' >> /usr/bin/startkiosk
