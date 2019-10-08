@@ -807,9 +807,6 @@ type 0204, grid 7.5 mm</description>
 </classes>
 <parts>
 <part name="U$1" library="Arduino-clone" deviceset="NANO" device=""/>
-<part name="U$2" library="Clean-Kong" deviceset="A4988" device=""/>
-<part name="U$3" library="Clean-Kong" deviceset="A4988" device=""/>
-<part name="U$4" library="Clean-Kong" deviceset="A4988" device=""/>
 <part name="U$5" library="IC" deviceset="A4988_STEP" device=""/>
 <part name="MOTOR" library="mcp" library_urn="urn:adsk.eagle:library:9418757" deviceset="PINHD-1X4" device="" package3d_urn="urn:adsk.eagle:package:22407/2"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
@@ -830,6 +827,7 @@ type 0204, grid 7.5 mm</description>
 <part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="U$7" library="mcp" library_urn="urn:adsk.eagle:library:9418757" deviceset="R-US" device="" package3d_urn="urn:adsk.eagle:package:23498/2"/>
 <part name="U$6" library="mcp" library_urn="urn:adsk.eagle:library:9418757" deviceset="R-US" device="" package3d_urn="urn:adsk.eagle:package:23498/2"/>
+<part name="U$2" library="mcp" library_urn="urn:adsk.eagle:library:9418757" deviceset="R-US" device="" package3d_urn="urn:adsk.eagle:package:23498/2"/>
 </parts>
 <sheets>
 <sheet>
@@ -903,6 +901,10 @@ type 0204, grid 7.5 mm</description>
 <attribute name="NAME" x="-14.1986" y="39.37" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-9.398" y="39.37" size="1.778" layer="96" rot="R90"/>
 </instance>
+<instance part="U$2" gate="G$1" x="60.96" y="50.8" smashed="yes" rot="R180">
+<attribute name="NAME" x="64.77" y="49.3014" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="64.77" y="54.102" size="1.778" layer="96" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -946,9 +948,13 @@ type 0204, grid 7.5 mm</description>
 <net name="CHK_DETECT" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="A6"/>
-<wire x1="50.8" y1="48.26" x2="73.66" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="50.8" y1="48.26" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
 <label x="53.34" y="48.26" size="1.778" layer="95"/>
 <pinref part="CHECK" gate="A" pin="2"/>
+<pinref part="U$2" gate="G$1" pin="2"/>
+<wire x1="55.88" y1="48.26" x2="73.66" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="50.8" x2="55.88" y2="48.26" width="0.1524" layer="91"/>
+<junction x="55.88" y="48.26"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -956,20 +962,6 @@ type 0204, grid 7.5 mm</description>
 <pinref part="U$5" gate="G$1" pin="2B"/>
 <wire x1="114.3" y1="40.64" x2="154.94" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="MOTOR" gate="A" pin="1"/>
-</segment>
-</net>
-<net name="N$5" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="2A"/>
-<wire x1="114.3" y1="38.1" x2="154.94" y2="38.1" width="0.1524" layer="91"/>
-<pinref part="MOTOR" gate="A" pin="2"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="U$5" gate="G$1" pin="1A"/>
-<wire x1="114.3" y1="35.56" x2="154.94" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="MOTOR" gate="A" pin="3"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -1072,6 +1064,8 @@ type 0204, grid 7.5 mm</description>
 <wire x1="73.66" y1="50.8" x2="66.04" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="P+5" gate="1" pin="+5V"/>
 <wire x1="66.04" y1="50.8" x2="66.04" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="1"/>
+<junction x="66.04" y="50.8"/>
 </segment>
 <segment>
 <pinref part="BILL" gate="G$1" pin="1"/>
@@ -1084,6 +1078,24 @@ type 0204, grid 7.5 mm</description>
 <wire x1="-27.94" y1="73.66" x2="-20.32" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="P+3" gate="1" pin="+5V"/>
 <wire x1="-20.32" y1="73.66" x2="-20.32" y2="78.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$2" class="0">
+<segment>
+<wire x1="129.54" y1="38.1" x2="132.08" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="U$5" gate="G$1" pin="2A"/>
+<wire x1="114.3" y1="38.1" x2="129.54" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="MOTOR" gate="A" pin="3"/>
+<wire x1="132.08" y1="35.56" x2="154.94" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U$5" gate="G$1" pin="1A"/>
+<wire x1="114.3" y1="35.56" x2="129.54" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="129.54" y1="35.56" x2="132.08" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="MOTOR" gate="A" pin="2"/>
+<wire x1="132.08" y1="38.1" x2="154.94" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
