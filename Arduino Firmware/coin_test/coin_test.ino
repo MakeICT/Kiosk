@@ -2,7 +2,7 @@
 // See LICENSE file for licensing details
 
 const int coinSelector = A0; // Analog input pin that the coin selector uses
-const int signalCostFactor = 5; // Each signal pulse is worth 5p
+const int signalCostFactor = 1; // Each signal pulse is worth 5p
 
 int signalValue = 0; // For storing value from analog input
 
@@ -33,7 +33,7 @@ void loop() {
 
   signalValue = analogRead(coinSelector); // Read analog value from coin selector
 
-  if (signalValue > 1000) {
+  if (signalValue < 1000) {
 
     state = 1; // State is 1 as we're high
 
